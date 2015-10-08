@@ -21,6 +21,11 @@ $(document).on({
     }
 }, ".indepth_moisaico_item");
 
+
+intervalo=setInterval(function() {
+  
+}, 1000);
+
 window.onload = function() {
   
     function bgadj(){

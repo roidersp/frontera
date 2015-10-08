@@ -181,6 +181,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 4;
 }
 
 #mosaico_cont{
@@ -195,6 +196,7 @@
 	margin: -1px;
 	cursor: pointer;
 	position: relative;
+
 }
 
 .indepth_moisaico_item img{
