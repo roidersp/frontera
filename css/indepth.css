@@ -177,6 +177,12 @@
 	padding: 70px 0;
 }
 
+.indepth_hover{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 #mosaico_cont{
 	width: 100%;
 	text-align: center;
@@ -188,6 +194,7 @@
 	display: inline-block;
 	margin: -1px;
 	cursor: pointer;
+	position: relative;
 }
 
 .indepth_moisaico_item img{

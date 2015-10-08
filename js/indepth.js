@@ -11,6 +11,16 @@ var numeroImages2=8;
 var posicion_slider2=0;
 var share;
 
+
+$(document).on({
+    mouseenter: function () {
+        $(this).find(".indepth_hover").fadeIn();
+    },
+    mouseleave: function () {
+        $(this).find(".indepth_hover").fadeOut();
+    }
+}, ".indepth_moisaico_item");
+
 window.onload = function() {
   
     function bgadj(){
