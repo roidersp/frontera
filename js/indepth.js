@@ -1,6 +1,6 @@
 var disqus_shortname = 'juanfutbol';
 var disqus_identifier;
-var disqus_url="america-";
+var disqus_url="frontera-norte";
 var disqus_number_c=2;
 var disqus_per_page=3;
 var tamaño_total=1920;
@@ -263,6 +263,10 @@ $(document).ready(function(){
 	var ventana_ancho = $(window).width();
 	//$("#indepth_break_2").css("height",)
 	$('#indepth_cover').css("height",(ventana_alto-100)+"px");
+	$("#indepth_video_show").css({
+				 width : ventana_ancho + "px",
+				 height : ventana_alto + "px"
+			 });
 	if(navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod' || navigator.platform == 'Android')
     {   	
     	$('#indepth_cover_view').css("position","absolute");

@@ -13,14 +13,14 @@
 	var autoplay = function(target){
 		var componentObj = {
 			videos:[
-				"30XuJ8tQYTE",
-				"yvv4CcGb1mo",
-				"HMnuvaii7sk",
-				"ljDO6Dhm974",
-				"7GwGQ0EIGqU",
-				"N44-6iECg-Y",
-				"uiNK9OoDjrI",
-				"VvrUkcqCFPk"],
+				"X91m1Gl4zfY",
+				"kX-JrhRAfX8",
+				"kslLHqG7HpY",
+				"H_V12z8Bn2M",
+				"_f-AP1Rw5oI",
+				"1sDd6gsEoJk",
+				"j0Scy_PyglY",
+				"nUjDUVkJSR8"],
 			methods:{
 				init:function(){
 					$(".indepth_moisaico_item").each(function(key, val){
@@ -34,11 +34,13 @@
 					$("#indepth_video_close").on("click", function(){
 						$("#indepth_video").html('');
 						$("#indepth_video_show").hide();
+						$('html, body').css("overflow","auto");
 					});
 				},
 				autoplay: function(vcode){
 					"use strict";
-  					$("#indepth_video").html('<iframe style="width: 100%; height: 100%;"  src="https://www.youtube.com/embed/'+vcode+'?autoplay=1" allowfullscreen></iframe>');
+  					$("#indepth_video").html('<iframe style="width: 100%; height: 100%;"  src="https://www.youtube.com/embed/'+vcode+'?autoplay=1&showinfo=0&controls=0&&rel=0" allowfullscreen></iframe>');
+  					$('html, body').css("overflow","hidden");
   				}
   			}
 		};
