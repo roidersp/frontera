@@ -122,7 +122,6 @@ var indepth_sizeAdjust = function(firstTime){
 }
 
 
-
 var indepth_menu=function(){
 	$('.indepth_cover').waypoint(function(direction) {
 		$(".indepth_share").fadeOut();
@@ -146,11 +145,8 @@ var indepth_menu=function(){
 		 }else{
 			  $(".indepth_share").fadeIn("slow");
 		 }
-		 
 		
 	},{offset: 'bottom-in-view'});
-	
-	
 	
 	
 	$(".indepth_page_content").waypoint(function(direction){
@@ -164,9 +160,6 @@ var indepth_menu=function(){
 	
 	$("#indepth_page_content").waypoint(function(direction){
 	},{offset: 'bottom-in-view'});
-	
-	 
-	 
 
 }
 
@@ -266,14 +259,15 @@ if (window.DISQUS) {
 $(document).ready(function(){
 	indepth_sizeAdjust(true);
 	indepth_preloadImgs();
-	var ventana_alto = $(window).height();
+	var ventana_alto =  window.innerHeight ? window.innerHeight : $(window).height();
 	var ventana_ancho = $(window).width();
 	//$("#indepth_break_2").css("height",)
+	$('#indepth_cover').css("height",(ventana_alto-100)+"px");
 	if(navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod' || navigator.platform == 'Android')
     {   	
     	$('#indepth_cover_view').css("position","absolute");
     }else{
-	     $('#indepth_cover').css("height",(ventana_alto)+"px");
+	     
     	if(ventana_ancho>800){
 			 $('#indepth_page1').css("height",(ventana_alto)+"px");
 			 $(".indepth_tatuajes_cuadros").css({
@@ -299,10 +293,10 @@ $(document).ready(function(){
 
 $(window).on("resize", function(){
 	indepth_sizeAdjust(false);
-	var ventana_alto = $(window).height();
+	var ventana_alto = window.innerHeight ? window.innerHeight : $(window).height();
 	var ventana_ancho = $(window).width();
 	
-	$('#indepth_cover').css("height",(ventana_alto)+"px");
+	$('#indepth_cover').css("height",(ventana_alto-100)+"px");
     	if(ventana_ancho>800){
 			 $('#indepth_page1').css("height",(ventana_alto)+"px");
 			 $(".indepth_tatuajes_cuadros").css({
