@@ -56,6 +56,7 @@ $(document).on("click","#indepth_boton_cover",function(){
 		}, 2000);
 });
 
+
 $(document).on("click",".indepth_mosaico_item",function(){
 	var mu = $(this).attr("id");
 	var time = $("#indepth_"+mu).attr("num")*500;
