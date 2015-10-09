@@ -1,6 +1,6 @@
 var disqus_shortname = 'juanfutbol';
 var disqus_identifier;
-var disqus_url="animated-football-league";
+var disqus_url="america-";
 var disqus_number_c=2;
 var disqus_per_page=3;
 var tamaño_total=1920;
@@ -14,59 +14,47 @@ var share;
 
 $(document).on({
     mouseenter: function () {
-        $(this).find(".indepth_hover").fadeIn();
+        $(this).animate({
+	        opacity:0
+        },300);
     },
     mouseleave: function () {
-        $(this).find(".indepth_hover").fadeOut();
+        $(this).animate({
+	        opacity:1
+        },300);
     }
-}, ".indepth_moisaico_item");
+}, ".indepth_hover");
 
+setInterval(cambiar_foto, 1000);
 
-intervalo=setInterval(function() {
-  
-}, 1000);
-
-window.onload = function() {
-  
-    function bgadj(){
-         
-        var videoActualWidth = video.getBoundingClientRect().width;
-        var videoActualHeight = video.getBoundingClientRect().height;
-              
-        var ratio =  videoActualWidth / videoActualHeight;         
-         
-        if ((window.innerWidth / window.innerHeight) < ratio){
-          
-            video.setAttribute("style", "width: auto");
-            video.setAttribute("style", "height: 100%");
-              
-            <!-- si el vídeo es mas ancho que la ventana lo centro. Esta parte es opcional -->
-            if (videoActualWidth > window.innerWidth){
-              
-                var ajuste = (window.innerWidth - videoActualWidth)/2;                
-                
-                video.setAttribute("style", "left:"+ajuste+"px");          
-            }
-          
-        }
-        else{ 
-          
-            video.setAttribute("style", "width: 100%");
-            video.setAttribute("style", "height: auto");
-            video.setAttribute("style", "left: 0");
-  
-        }
-          
-    }
+function cambiar_foto(){
+	var random = Math.floor((Math.random() * 8) + 0);
 	
-	bgadj();
-    <!-- vuelvo a llamar a la función  bgadj() al redimensionar la ventana -->
-    window.onresize = function() {
-        bgadj();
-  
-    }
-  
-}
+	var content=$(".indepth_moisaico_item").eq(random);
+	
+	img=content.find(".active");
+	
+	console.log();
+	var index = img.index()+1;
+	
+	if(index>=3)
+		index=0;
+	
+	img_next = content.find(".indept_m_img").eq(index);
+	
+	img.removeClass("active");
+	img.fadeOut("slow");
+	
+	img_next.addClass("active");
+	img_next.fadeIn("slow");
+};
+
+$(document).on("click","#indepth_boton_cover",function(){
+	var position = $("#indepth_page1").position();
+		$('html, body').animate({
+			scrollTop: position.top
+		}, 2000);
+});
 
 $(document).on("click",".indepth_mosaico_item",function(){
 	var mu = $(this).attr("id");
@@ -282,15 +270,16 @@ $(document).ready(function(){
 	//$("#indepth_break_2").css("height",)
 	if(navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod' || navigator.platform == 'Android')
     {   	
-    
-			 $('#indepth_cover_view').css("position","absolute");
+    	$('#indepth_cover_view').css("position","absolute");
     }else{
-    	 if(ventana_ancho>600){
-		 $('#indepth_cover').css("height",(ventana_alto)+"px");
+	     $('#indepth_cover').css("height",(ventana_alto)+"px");
+    	if(ventana_ancho>800){
+			 $('#indepth_page1').css("height",(ventana_alto)+"px");
 			 $(".indepth_tatuajes_cuadros").css({
 				 width : ventana_ancho + "px",
 				 height : ventana_alto + "px"
 			 });
+			
 
  	}
 	 //ventana_alto=ventana_alto-(ventana_alto*.15)
@@ -303,12 +292,23 @@ $(document).ready(function(){
     }
 		loadDisqus($("#indepth_coments"),disqus_url, "http://juanfutbol.com/indepth/"+disqus_url);
 		//$('#indepth_cover').css("height",(ventana_alto-60)+"px");
+		
+		
 });
 
 $(window).on("resize", function(){
 	indepth_sizeAdjust(false);
 	var ventana_alto = $(window).height();
 	var ventana_ancho = $(window).width();
+	
+	$('#indepth_cover').css("height",(ventana_alto)+"px");
+    	if(ventana_ancho>800){
+			 $('#indepth_page1').css("height",(ventana_alto)+"px");
+			 $(".indepth_tatuajes_cuadros").css({
+				 width : ventana_ancho + "px",
+				 height : ventana_alto + "px"
+			 });
+			}
     	//$('#indepth_cover').css("height",(ventana_alto-60)+"px");
     	 if(ventana_ancho>600){
 	 	$('.indepth_container_cover').css("height",(ventana_alto)+"px");

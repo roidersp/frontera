@@ -43,7 +43,7 @@
 	margin-bottom: 60px;
 	animation-name: example;
 	-webkit-animation-name: example;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
 }
 
 @keyframes example {
@@ -58,8 +58,8 @@
 	margin-bottom: 40px;
 	animation-name: frontera_animation;
 	-webkit-animation-name: frontera_animation;
-    animation-duration: 2s;
-    animation-delay: 2.5s;
+    animation-duration: 1.5s;
+    animation-delay: 1.6s;
     opacity: 0;
     animation-fill-mode: forwards;
 }
@@ -78,9 +78,10 @@
 	animation-name: text_animation;
 	-webkit-animation-name: text_animation;
     animation-duration: 2s;
-    animation-delay: 5s;
+    animation-delay: 2.5s;
     opacity: 0;
     animation-fill-mode: forwards;
+    font-size: 14px;
 }
 
 @keyframes text_animation {
@@ -96,7 +97,7 @@
 	animation-name: boton_animation;
 	-webkit-animation-name: boton_animation;
     animation-duration: 2s;
-    animation-delay: 7.5s;
+    animation-delay: 4s;
     opacity: 0;
     animation-fill-mode: forwards;
 	
@@ -160,8 +161,9 @@
 }
 
 .indepth_header{
-	width: 100%;
+	width: 800px;
 	height: 41px;
+	margin: auto;
 }
 
 #HEADER_logofrontera{
@@ -174,18 +176,19 @@
 
 #indepth_page1{
 	background-color: black;
-	padding: 70px 0;
+	display: table;
 }
 
-.indepth_hover{
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 4;
+#indepth_page1 .indepth_page_cont{
+	display: table-cell;
+	vertical-align: middle;
 }
+
+
+
 
 #mosaico_cont{
-	width: 100%;
+	width: 800px;
 	text-align: center;
 	margin: 20px auto;
 }
@@ -196,13 +199,29 @@
 	margin: -1px;
 	cursor: pointer;
 	position: relative;
-
+	height: 271px;
 }
 
 .indepth_moisaico_item img{
 	display: none;
 	width: 100%;
 }
+
+.indept_m_img{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0px;
+	z-index: 11;
+}
+
+.indept_m_img.active{
+	z-index: 10;
+}
+
+
+
+
 
 .indepth_share{
 	position: fixed;
@@ -339,12 +358,11 @@
 }
  
 #indepth_cover .indepth_parallax_back{
-	background-image: url(../images/1PORTADA_FONDO.jpg);
-	background-size: 1920px auto;
+	background-image: url(../images/FONDO-Portada.jpg);
+	background-size: cover;
 	background-position: center top;
 	text-align: center;
 	width: 100%;
-	background: black;
 }
 
 #indepth_cover{
@@ -519,6 +537,14 @@
 /****DINAMICO****/
 
 
+.indepth_hover{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 40;
+	display: block !important;
+	opacity: 1;
+}
 
 
 /***** menu******/
@@ -526,9 +552,35 @@
 
 /* mobile adecuations */
 
-@media screen and (min-width: 860px) {
+@media screen and (max-width: 810px) {
 	
-	/***** mosaico ******/
+	.indepth_cover_in{
+		width: 96%;
+		margin: auto;
+	}
+	
+	#mosaico_cont{
+		width: 95%;
+	}
+	
+	#indepth_page1 .indepth_page_cont{
+		padding: 70px 0;
+	}
+	
+	.indepth_header{
+		width: 95%;
+		
+	}
+	
+	#indepth_frontera_logo{
+		width: 90%;
+	}
+	
+	.indepth_header{
+		height: auto;
+		display: table;
+	}
+	
 	
 }
 
@@ -541,10 +593,6 @@
 	
 	.indepth_logo_img_cover img{
 		width: 100%;
-	}
-	
-	#indepth_cover .indepth_parallax_back {
-	    background-position: center -100px;
 	}
 	
 
@@ -562,10 +610,7 @@
 		width: 100%;
 	}
 	
-	#indepth_cover .indepth_parallax_back {
-	    background-position: center -100px;
-	}
-	
+
 
 	
 	.indepth_logo_cover img{
@@ -1368,12 +1413,7 @@
 		display: none;
 	}
 	
-	#indepth_cover .indepth_parallax_back{
-		background-image: url(../images/1-PORTADA_FONDO_MOVIL.png);
-		background-position: center top;
-		background-size: 100%;
-		
-	}
+
 	
 	.indepth_cover_movil{
 		width: 100%;
@@ -1413,13 +1453,18 @@
 		
 	}
 	
+	
+	
 
 
 }
 	
 @media screen and (max-width: 375px) {
 	
+#indepth_cover_text{
 
+    font-size: 12px;
+}
 	
 }
 	
